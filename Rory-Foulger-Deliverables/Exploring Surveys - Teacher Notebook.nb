@@ -1,0 +1,1975 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     87244,       1967]
+NotebookOptionsPosition[     49832,       1198]
+NotebookOutlinePosition[     77561,       1769]
+CellTagsIndexPosition[     77307,       1758]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Exploring Surveys ", "Title",
+ CellChangeTimes->{{3.68969755132447*^9, 3.689697553137344*^9}, {
+  3.6900313948912163`*^9, 3.690031395848057*^9}, {3.739906408766932*^9, 
+  3.7399064093408937`*^9}, {3.739906444833378*^9, 3.739906455021143*^9}},
+ CellTags->"Title",ExpressionUUID->"a0dcb453-6446-4ef5-8ad6-b1fb076cac42"],
+
+Cell[TextData[{
+ "In this module, students design a survey, administer the survey to their \
+peers, and analyse the results, curating useful data visualisations and \
+descriptive statistics .\n",
+ StyleBox[" ",
+  FontSize->3],
+ "\nAppropriate for ages ",
+ StyleBox["11+",
+  FontWeight->"Bold"],
+ StyleBox[".",
+  FontWeight->"Plain"],
+ StyleBox["\n",
+  FontWeight->"Bold"],
+ StyleBox[" ",
+  FontSize->3,
+  FontWeight->"Bold"],
+ StyleBox["\nAllow 60 minutes to complete the module",
+  FontWeight->"Bold"],
+ StyleBox[".\n",
+  FontWeight->"Plain"],
+ StyleBox["\nImportant note:",
+  FontWeight->"Bold"],
+ StyleBox[" This module should be led by an instructor with basic Wolfram \
+Language knowledge. If you would like to learn the language, please try this",
+  FontWeight->"Plain"],
+ StyleBox[" ",
+  FontWeight->"Bold"],
+ StyleBox[ButtonBox["free online introduction",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolfram.com/language/elementary-introduction/"], None},
+  ButtonNote->"https://www.wolfram.com/language/elementary-introduction/"],
+  FontWeight->"Bold"],
+ StyleBox[". If you would like a Computational Thinking Initiative ambassador \
+or volunteer to help you run an adventure, please ",
+  FontWeight->"Plain"],
+ StyleBox[ButtonBox["contact us",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://www.wolframcloud.com/objects/computationinitiative/\
+GetInvolved"], None},
+  ButtonNote->
+   "https://www.wolframcloud.com/objects/computationinitiative/GetInvolved"],
+  FontWeight->"Bold"],
+ StyleBox[".",
+  FontWeight->"Plain"]
+}], "ModuleDescription",
+ CellChangeTimes->{{3.68969760782587*^9, 3.689697628647681*^9}, {
+   3.689697679054768*^9, 3.689697680598525*^9}, {3.6896977432616777`*^9, 
+   3.6896977678772993`*^9}, {3.689697798327086*^9, 3.689697976562215*^9}, {
+   3.6896981966470833`*^9, 3.68969823468887*^9}, {3.689698854110705*^9, 
+   3.6896988558795223`*^9}, {3.689698927877808*^9, 3.689698928541136*^9}, {
+   3.689698962100581*^9, 3.6896989851088257`*^9}, {3.6896990999236107`*^9, 
+   3.689699103986547*^9}, {3.689701781683477*^9, 3.689701781994776*^9}, 
+   3.68987656266671*^9, {3.689877712083213*^9, 3.6898777845533404`*^9}, {
+   3.689951499485917*^9, 3.6899515143639307`*^9}, 3.696023892724984*^9, {
+   3.7399064598657913`*^9, 3.739906467380248*^9}, {3.739906845627893*^9, 
+   3.73990690221756*^9}, {3.740063063434816*^9, 3.740063064214034*^9}, {
+   3.740088726100225*^9, 3.740088726154409*^9}},
+ CellTags->
+  "Module Description",ExpressionUUID->"19c02064-b003-4abe-a471-ee158aad0098"],
+
+Cell[CellGroupData[{
+
+Cell["Learning Objective", "SectionHeader",
+ CellTags->
+  "Section Header",ExpressionUUID->"3244ddce-1151-4a5d-b297-9028eeea907f"],
+
+Cell["\<\
+Students will be able to understand the advantages and disadvantages of \
+different types of data, and select appropriate visualizations and \
+descriptive statistics to describe their data.\
+\>", "Item",
+ CellChangeTimes->{
+  3.689699160364554*^9, {3.689951534408799*^9, 3.6899515349000263`*^9}, {
+   3.739908811681672*^9, 3.739908899722804*^9}},
+ CellTags->"Item",ExpressionUUID->"0a5d1e4b-fb73-4366-8af8-b7a02187031e"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Computational Thinking Principles and Practices", "SectionHeader",
+ CellTags->
+  "Section Header",ExpressionUUID->"fa2f0791-79d5-41af-b5bc-f022d41664f4"],
+
+Cell["----", "Item",
+ CellChangeTimes->{
+  3.6896991850747747`*^9, {3.689951542138788*^9, 3.689951544970646*^9}, {
+   3.739908920465803*^9, 3.739908920888528*^9}},
+ CellTags->"Item",
+ CellID->1263652807,ExpressionUUID->"c855dbe1-7b4c-4dba-b8cb-36293e83baed"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Standards Alignment", "SectionHeader",
+ ShowGroupOpener->True,
+ CellTags->
+  "Section Header",ExpressionUUID->"48f8d30a-47b5-42ba-8c00-d87038ab5e18"],
+
+Cell["-------", "Item",
+ CellChangeTimes->{
+  3.6896992023558273`*^9, {3.739908928961671*^9, 3.73990892979533*^9}},
+ CellTags->"Item",ExpressionUUID->"02605444-e328-4926-8bd0-0624beb19f8f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Helpful Background", "SectionHeader",
+ ShowGroupOpener->True,
+ CellTags->
+  "Section Header",ExpressionUUID->"e747df6f-dd27-4133-b607-6495d3f4cf77"],
+
+Cell["-----", "Item",
+ CellChangeTimes->{{3.6896992613936872`*^9, 3.689699286718638*^9}, 
+   3.689951616848422*^9, {3.739908934452155*^9, 3.739908935044056*^9}},
+ CellTags->"Item",ExpressionUUID->"badd51da-d62b-4793-94a2-70dfc7d22c4c"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",ExpressionUUID->"a8a95f5b-273a-4098-93df-0ce2d2bc5e10"],
+
+Cell[CellGroupData[{
+
+Cell["STARTING POINT", "Section",
+ CellGroupingRules->{
+  "SectionGrouping", 
+   32},ExpressionUUID->"b2caab7d-f38a-4343-af77-45cb1b424fc7"],
+
+Cell["\[OpenCurlyDoubleQuote]Today we\[CloseCurlyQuote]re going to create and \
+analyse a survey.\[CloseCurlyDoubleQuote]", "Statement",
+ CellChangeTimes->{
+  3.689699698170939*^9, {3.7399152234475183`*^9, 3.739915280045847*^9}, {
+   3.740091145394436*^9, 3.740091146342826*^9}},
+ CellTags->"Statement",ExpressionUUID->"54a9778a-f204-4455-907e-4332d29da740"],
+
+Cell["\<\
+The first thing we need to do is create a data bin to store the responses to \
+our survey\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.740091165637595*^9, 
+   3.740091168219187*^9}},
+ CellTags->"Statement",
+ CellID->2055985095,ExpressionUUID->"d74a9a9a-90a4-4a9e-8cce-edb21bdba025"],
+
+Cell[BoxData[
+ RowBox[{"bin", "=", 
+  RowBox[{"CreateDatabin", "[", "]"}]}]], "Input",
+ CellChangeTimes->{
+  3.689699703065692*^9, {3.73991528769376*^9, 3.739915309521679*^9}},
+ CellLabel->"In[9]:=",ExpressionUUID->"73b76165-b357-48db-b2d1-9a46fe43dea0"],
+
+Cell["\[OpenCurlyDoubleQuote]Let\[CloseCurlyQuote]s customise a survey!\
+\[CloseCurlyDoubleQuote]", "Statement",
+ CellChangeTimes->{
+  3.689699698170939*^9, {3.7399152234475183`*^9, 3.739915280045847*^9}, {
+   3.739915410536709*^9, 3.739915437759184*^9}},
+ CellTags->"Statement",
+ CellID->1183425932,ExpressionUUID->"708a1c39-d62f-48cf-b463-1c3c83500bc6"],
+
+Cell[BoxData[
+ RowBox[{"CloudDeploy", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"FormFunction", "[", 
+    RowBox[{
+     RowBox[{"{", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<name\>\"", ",", "\"\<What is your name?\>\""}], "}"}], 
+        "\[Rule]", "\"\<String\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<age\>\"", ",", "\"\<How old are you?\>\""}], "}"}], 
+        "\[Rule]", "\"\<Number\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<gender\>\"", ",", " ", "\"\<What is your gender?\>\""}],
+          "}"}], " ", "\[Rule]", " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Male\>\"", ",", "\"\<Female\>\"", ",", "\"\<Other\>\""}], 
+         "}"}]}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"\"\<height\>\"", ",", "\"\<How tall are you in cm?\>\""}], 
+         " ", "}"}], "\[Rule]", " ", "\"\<Number\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<weight\>\"", ",", "\"\<How much do you weigh in lbs?\>\""}], 
+         " ", "}"}], "\[Rule]", " ", "\"\<Number\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<exercise\>\"", ",", " ", 
+          "\"\<How many minutes of exercise do you do a day?\>\""}], "}"}], 
+        "\[Rule]", "\"\<Number\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<water\>\"", ",", 
+          "\"\<How many glasses of water did you drink yesterday?\>\""}], 
+         "}"}], " ", "\[Rule]", " ", "\"\<Number\>\""}], ",", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<pets\>\"", ",", " ", "\"\<How many pets do you own?\>\""}], 
+         "}"}], "\[Rule]", "\"\<Number\>\""}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<health\>\"", ",", " ", "\"\<How healthy do you feel?\>\""}], 
+         "}"}], " ", "\[Rule]", " ", 
+        RowBox[{"{", 
+         RowBox[{
+         "\"\<Very Unhealthy\>\"", ",", "\"\<Unhealthy\>\"", ",", 
+          "\"\<Healthy\>\"", ",", "\"\<Very Healthy\>\""}], "}"}]}]}], 
+      "\[IndentingNewLine]", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"DatabinAdd", "[", 
+       RowBox[{"bin", ",", 
+        RowBox[{"<|", 
+         RowBox[{
+          RowBox[{"\"\<name\>\"", "\[Rule]", "#name"}], " ", ",", 
+          RowBox[{"\"\<age\>\"", "\[Rule]", "#age"}], ",", " ", 
+          RowBox[{"\"\<gender\>\"", " ", "\[Rule]", "#gender"}], ",", " ", 
+          RowBox[{"\"\<height\>\"", " ", "\[Rule]", "#height"}], ",", " ", 
+          RowBox[{"\"\<weight\>\"", " ", "\[Rule]", "#weight"}], ",", " ", 
+          RowBox[{"\"\<exercise\>\"", " ", "\[Rule]", "#exercise"}], ",", " ", 
+          RowBox[{"\"\<water\>\"", " ", "\[Rule]", "#water"}], ",", " ", 
+          RowBox[{"\"\<pets\>\"", " ", "\[Rule]", "#pets"}], ",", " ", 
+          RowBox[{"\"\<health\>\"", " ", "\[Rule]", " ", "#health"}]}], 
+         "|>"}]}], "]"}], "&"}]}], "]"}], ",", "\[IndentingNewLine]", 
+   RowBox[{"Permissions", " ", "\[Rule]", " ", "\"\<Public\>\""}]}], 
+  "]"}]], "Input",
+ CellChangeTimes->{3.739915578388522*^9},
+ CellID->907882076,ExpressionUUID->"9252fba3-0145-49ae-93cf-fabd0b1d609c"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  Here we can talk about or explain CloudDeploy, and how when we run this \
+piece of code and click the link, we can go straight to the interface we\
+\[CloseCurlyQuote]ve created. When we fill in this form, we can see the data \
+appear in the Databin."
+}], "Suggestion",
+ CellChangeTimes->{
+  3.689699732281433*^9, 3.689951683914926*^9, {3.7399154604740667`*^9, 
+   3.73991548253433*^9}, {3.7399155726400223`*^9, 3.739915619953871*^9}, 
+   3.7399157000037727`*^9, {3.7400911270336037`*^9, 3.740091128849074*^9}},
+ CellTags->"Suggested Guides",
+ CellID->62537317,ExpressionUUID->"d6abefba-6a3a-4d24-b234-3ce37fbee4bc"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  If students are interested in ",
+ StyleBox["FormFunction", "Input"],
+ ", try experimenting with different controls: use a list of possible answers \
+(like in the \[OpenCurlyDoubleQuote]gender\[CloseCurlyDoubleQuote] or \
+\[OpenCurlyDoubleQuote]health\[CloseCurlyDoubleQuote] questions) to \
+automatically create a drop down menu. Try using the documentation for ",
+ ButtonBox["Control Objects",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://reference.wolfram.com/language/guide/ControlObjects.html"], 
+    None},
+  ButtonNote->
+   "http://reference.wolfram.com/language/guide/ControlObjects.html"],
+ " to write a question using a slider or radio buttons"
+}], "Suggestion",
+ CellChangeTimes->{{3.689876712196637*^9, 3.6898767343838763`*^9}, {
+  3.6898768020490017`*^9, 3.689876816329631*^9}, {3.689951704687677*^9, 
+  3.6899517256283817`*^9}, {3.7399157054845877`*^9, 3.7399157890549183`*^9}, {
+  3.739916046779036*^9, 3.73991610098746*^9}, {3.740132397711946*^9, 
+  3.740132414380368*^9}},
+ CellTags->"Suggested Guides",
+ CellID->945183436,ExpressionUUID->"8e1b6afa-eb8a-4017-8772-b0bceb679c28"],
+
+Cell["\<\
+Once people have submitted their responses, they will be gathered in the \
+Databin we created at the beginning. We can see a table of responses using \
+Dataset.\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}},
+ CellTags->"Statement",
+ CellID->213552572,ExpressionUUID->"20fae844-c751-4480-bde2-fc80905e46c7"],
+
+Cell[BoxData[
+ RowBox[{"Dataset", "[", "bin", "]"}]], "Input",
+ CellID->1288979274,ExpressionUUID->"03feb706-1700-461e-a2f5-1dac5b5b074b"],
+
+Cell["\<\
+It\[CloseCurlyQuote]s easy to change the questions you\[CloseCurlyQuote]re \
+asking. There are three places you need to look. Say we want to change the \
+question about pets to a question asking how many peices of fruit the person \
+ate yesterday . We have to change the tag, and also the question. We can \
+change the type of input which is allowed too. We can add as many questions \
+as we want.\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.74006266776206*^9, 3.7400626842834883`*^9}, {3.740132556521365*^9, 
+   3.740132557252384*^9}},
+ CellTags->"Statement",
+ CellID->1944680335,ExpressionUUID->"77850367-bd3f-4cbd-814d-0059101dfcf1"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\"\<pets\>\"", ",", "\"\<How many pets do you own?\>\""}], "}"}],
+    "\[Rule]", "\"\<Number\>\""}], ",", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"\"\<fruit\>\"", ",", "\"\<What is your favorite color\>\""}], 
+    "}"}], "\[Rule]", "\"\<String\>\""}]}]], "Input",
+ Evaluatable->False,
+ CellChangeTimes->{{3.739917410031966*^9, 3.739917426815371*^9}, {
+  3.740068145752337*^9, 3.74006814831502*^9}, {3.74013259437234*^9, 
+  3.740132610602962*^9}},
+ CellID->1498221253,ExpressionUUID->"20d3d4d2-5b92-48c7-a326-937ec79d9cda"],
+
+Cell["\<\
+Finally, we need to make sure that the answer is recorded in the Databin.\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.7399164053719807`*^9, 3.739916425300049*^9}},
+ CellTags->"Statement",
+ CellID->2076188951,ExpressionUUID->"9631fce7-37e3-434a-92f4-fb0bdf895c3a"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"DatabinAdd", "[", 
+    RowBox[{"bin", ",", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\"\<name\>\"", "\[Rule]", "#name"}], ",", 
+       RowBox[{"\"\<age\>\"", "\[Rule]", "#age"}], ",", 
+       RowBox[{"\"\<gender\>\"", "\[Rule]", "#gender"}], ",", 
+       RowBox[{"\"\<height\>\"", "\[Rule]", "#height"}], ",", 
+       RowBox[{"\"\<weight\>\"", "\[Rule]", "#weight"}], ",", 
+       RowBox[{"\"\<exercise\>\"", "\[Rule]", "#exercise"}], ",", 
+       RowBox[{"\"\<water\>\"", "\[Rule]", "#water"}], ",", 
+       RowBox[{"\"\<pets\>\"", "\[Rule]", "#pets"}], ",", 
+       RowBox[{"\"\<health\>\"", "\[Rule]", "#health"}], ",", 
+       RowBox[{"\"\<fruit\>\"", "\[Rule]", "#fruit"}]}], "]"}]}], "]"}], 
+   "&"}], "}"}]], "Input",
+ Evaluatable->False,
+ CellChangeTimes->{{3.740068536708187*^9, 3.7400685425902243`*^9}, {
+  3.740068917188669*^9, 3.7400689180045013`*^9}, {3.740132612637046*^9, 
+  3.740132613533154*^9}},
+ CellID->1906882992,ExpressionUUID->"045ed847-4ee6-436e-bd0e-d85ba735366c"],
+
+Cell[TextData[{
+ "Each question needs to have a ",
+ StyleBox["\[OpenCurlyDoubleQuote]tag\[CloseCurlyDoubleQuote] -> #tag", 
+  "Input"],
+ " in the DatabinAdd function, separated by a comma. We can add as many \
+questions as we want."
+}], "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.7399164053719807`*^9, 3.739916425300049*^9}, {3.739916891504368*^9, 
+   3.739916927876169*^9}, {3.7399169799701366`*^9, 3.739916987705941*^9}, {
+   3.7400626241246758`*^9, 3.740062630969112*^9}},
+ CellTags->"Statement",
+ CellID->794125135,ExpressionUUID->"66e932ce-2e41-48dc-907c-40841a5f85bc"],
+
+Cell[CellGroupData[{
+
+Cell["CHECKPOINT", "Checkpoint",
+ CellChangeTimes->{
+  3.689951674093968*^9},ExpressionUUID->"2bd81706-f99c-4dec-93f4-\
+11b4751959f7"],
+
+Cell[TextData[{
+ StyleBox["Check that",
+  FontSize->16,
+  FontWeight->"Plain"],
+ StyleBox[" every student has made or changed a question, and deployed their \
+form. They should have a link to a working survey. When the survey is filled \
+in, the data should appear in the Databin, which you can see by re-evaluating \
+Dataset[bin].",
+  FontSize->16]
+}], "SectionText",
+ CellChangeTimes->{{3.689699744896862*^9, 3.689699747725493*^9}, 
+   3.689880462149308*^9, {3.739917000051523*^9, 3.739917060561726*^9}, {
+   3.740062702655341*^9, 3.74006271778258*^9}, {3.740068899941532*^9, 
+   3.740068913850672*^9}},
+ CellID->1117429604,ExpressionUUID->"037efc31-fc0e-4816-9fa5-eb3c009e53b0"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",ExpressionUUID->"6e4a5d20-d83c-4336-984b-635eb3669004"],
+
+Cell[TextData[{
+ "\[OpenCurlyDoubleQuote]Let\[CloseCurlyQuote]s work on filling out each \
+other\[CloseCurlyQuote]s surveys",
+ StyleBox[".",
+  FontSize->16],
+ "\[CloseCurlyDoubleQuote]"
+}], "Statement",
+ CellChangeTimes->{{3.689699757385085*^9, 3.689699758014668*^9}, {
+  3.689951769713397*^9, 3.689951777771721*^9}, {3.6900315050984*^9, 
+  3.690031507150545*^9}, {3.74006863623672*^9, 3.740068652718425*^9}},
+ CellTags->"Statement",ExpressionUUID->"09957eda-e7be-4393-b4e3-dc131831d20a"],
+
+Cell["\<\
+Students can share the link to their cloud deployed surveys with the class, \
+and have their peers fill out their surveys. Each student should gather about \
+10 responses. If time is limited, you can have students work in pairs or \
+groups of three to collect data from the same survey in the same data bin.\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.740068696715107*^9, 3.740068782334669*^9}},
+ CellTags->"Statement",ExpressionUUID->"2f923efb-22f3-4698-8116-d5125ffb9479"],
+
+Cell[CellGroupData[{
+
+Cell["CHECKPOINT", "Checkpoint",
+ CellChangeTimes->{
+  3.6899518427928*^9},ExpressionUUID->"dc138c70-15ab-4738-aeaf-f8088225135c"],
+
+Cell["\<\
+Check with each student to see that they have at least 10 responses to their \
+survey.\
+\>", "SectionText",
+ CellChangeTimes->{{3.6897004150834513`*^9, 3.689700434481472*^9}, {
+   3.6898804499772863`*^9, 3.6898804539572935`*^9}, 3.689951908578692*^9, {
+   3.740068809808112*^9, 3.740068822987361*^9}, {3.740068866226659*^9, 
+   3.740068893707695*^9}},ExpressionUUID->"77d32f24-8985-4c9c-9a5e-\
+c266fe851ce6"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",
+ CellID->1061869259,ExpressionUUID->"d9afd486-3bfd-4b1a-be77-18af147ff265"],
+
+Cell["\[OpenCurlyDoubleQuote]Now we have data, let\[CloseCurlyQuote]s create \
+some visualisations\[CloseCurlyDoubleQuote]", "Statement",
+ CellChangeTimes->{
+  3.6897004979153967`*^9, {3.689879929211745*^9, 3.6898799326145506`*^9}, {
+   3.740069575903767*^9, 3.7400695870407887`*^9}},
+ CellTags->"Statement",
+ CellID->583969136,ExpressionUUID->"180a5b73-731c-461a-a391-74603c192088"],
+
+Cell["\<\
+This function cleans the data, creating an association table of the tags and \
+results. It then creates a dynamic chart which allows students to experiment \
+with different ways of displaying the data they\[CloseCurlyQuote]ve gathered.\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.74006266776206*^9, 3.7400626842834883`*^9}, {3.7400701994855757`*^9, 
+   3.7400702649817667`*^9}, {3.740073076808682*^9, 3.74007314897875*^9}, {
+   3.740073491824827*^9, 3.74007351927488*^9}},
+ CellTags->"Statement",
+ CellID->1741602656,ExpressionUUID->"703c1379-8139-44f5-82c4-8b90881b694d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"keys", "=", 
+   RowBox[{"Drop", "[", 
+    RowBox[{
+     RowBox[{"Keys", "[", 
+      RowBox[{"Last", "[", 
+       RowBox[{"Normal", "[", 
+        RowBox[{"Dataset", "[", "bin", "]"}], "]"}], "]"}], "]"}], ",", 
+     RowBox[{"-", "1"}]}], "]"}]}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"val", "=", 
+    RowBox[{"Drop", "[", 
+     RowBox[{
+      RowBox[{
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"Values", "[", "bin", "]"}], "[", "#1", "]"}], "&"}], ")"}],
+        "/@", 
+       RowBox[{"Keys", "[", 
+        RowBox[{"Last", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Dataset", "[", "bin", "]"}], "]"}], "]"}], "]"}]}], ",", 
+      RowBox[{"-", "1"}]}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{"DynamicModule", "[", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"x", ",", "y", ",", "type", ",", "plotTypes", ",", " ", 
+     RowBox[{"h", "=", "1"}], ",", "stats"}], "}"}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"plotTypes", "[", 
+      RowBox[{"type_String", ",", "y_"}], "]"}], ":=", "\[IndentingNewLine]", 
+     RowBox[{"Which", "[", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"type", "\[Equal]", "\"\<Histogram\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NumberQ", "[", 
+          RowBox[{"Last", "[", 
+           RowBox[{
+           "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+           "]"}], "]"}], ",", 
+         RowBox[{"Column", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"stats", "[", "x", "]"}], ",", 
+            RowBox[{"Row", "[", 
+             RowBox[{"{", 
+              RowBox[{
+               RowBox[{"Tooltip", "[", 
+                RowBox[{
+                "\"\<How wide would you like your histogram bins to be? \>\"",
+                  ",", "\"\<Try making the bins larger or smaller, and see \
+how it helps you to visualize the data\>\""}], "]"}], ",", 
+               RowBox[{"InputField", "[", 
+                RowBox[{
+                 RowBox[{"Dynamic", "[", "h", "]"}], ",", 
+                 RowBox[{"FieldSize", "\[Rule]", "2"}]}], "]"}]}], "}"}], 
+             "]"}], ",", 
+            RowBox[{"Histogram", "[", 
+             RowBox[{
+              RowBox[{
+              "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+              ",", 
+              RowBox[{"{", "h", "}"}], ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"\"\<Histogram of\>\"", " ", 
+                RowBox[{"keys", "[", 
+                 RowBox[{"[", "y", "]"}], "]"}]}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+              RowBox[{"ImagePadding", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"30", ",", "30"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"30", ",", "30"}], "}"}]}], "}"}]}]}], "]"}]}], 
+           "}"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"StringQ", "[", 
+          RowBox[{"Last", "[", 
+           RowBox[{
+           "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+           "]"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"BarChart", "[", 
+          RowBox[{
+           RowBox[{"Counts", "[", 
+            RowBox[{
+            "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+            "]"}], ",", " ", 
+           RowBox[{"PlotLabel", "\[Rule]", 
+            RowBox[{"\"\<Histogram of\>\"", " ", 
+             RowBox[{"keys", "[", 
+              RowBox[{"[", "y", "]"}], "]"}]}]}], ",", 
+           RowBox[{"ChartLabels", "\[Rule]", "Automatic"}], ",", 
+           RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+           RowBox[{"ImagePadding", "\[Rule]", 
+            RowBox[{"{", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"30", ",", "30"}], "}"}], ",", 
+              RowBox[{"{", 
+               RowBox[{"30", ",", "30"}], "}"}]}], "}"}]}]}], "]"}]}], "]"}], 
+       ",", "\[IndentingNewLine]", 
+       RowBox[{"type", "\[Equal]", "\"\<Box and Whisker\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Which", "[", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"NumberQ", "[", 
+          RowBox[{"Last", "[", 
+           RowBox[{
+           "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+           "]"}], "]"}], ",", 
+         RowBox[{"Column", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"stats", "[", "x", "]"}], ",", 
+            RowBox[{"BoxWhiskerChart", "[", 
+             RowBox[{
+              RowBox[{
+              "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+              ",", "\"\<Outliers\>\"", ",", 
+              RowBox[{"PlotLabel", "\[Rule]", 
+               RowBox[{"\"\<Box and Whisker Chart of\>\"", " ", 
+                RowBox[{"keys", "[", 
+                 RowBox[{"[", "y", "]"}], "]"}]}]}], ",", 
+              RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+              RowBox[{"ImagePadding", "\[Rule]", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{"30", ",", "30"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"30", ",", "30"}], "}"}]}], "}"}]}]}], "]"}]}], 
+           "}"}], "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"StringQ", "[", 
+          RowBox[{"Last", "[", 
+           RowBox[{
+           "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+           "]"}], "]"}], ",", 
+         "\"\<We can't make a Box and Whisker Plot with non-numeric data, try \
+a different plot\>\""}], "]"}], ",", 
+       RowBox[{"type", "\[Equal]", "\"\<Pie Chart\>\""}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{"PieChart", "[", 
+        RowBox[{
+         RowBox[{"Counts", "[", 
+          RowBox[{
+          "val", "\[LeftDoubleBracket]", "y", "\[RightDoubleBracket]"}], 
+          "]"}], ",", 
+         RowBox[{"PlotLabel", "\[Rule]", 
+          RowBox[{"\"\<Pie Chart of\>\"", " ", 
+           RowBox[{"keys", "[", 
+            RowBox[{"[", "y", "]"}], "]"}]}]}], ",", 
+         RowBox[{"ChartLabels", "\[Rule]", "Automatic"}], ",", 
+         RowBox[{"ImageSize", "\[Rule]", "500"}], ",", 
+         RowBox[{"ImagePadding", "\[Rule]", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"30", ",", "30"}], "}"}], ",", 
+            RowBox[{"{", 
+             RowBox[{"30", ",", "30"}], "}"}]}], "}"}]}]}], "]"}]}], "]"}]}], 
+    ";", "\[IndentingNewLine]", 
+    RowBox[{"Column", "[", "\[IndentingNewLine]", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"TabView", "[", 
+        RowBox[{
+         RowBox[{"AssociationThread", "[", 
+          RowBox[{"keys", "\[Rule]", "val"}], "]"}], ",", 
+         RowBox[{"Dynamic", "[", "x", "]"}], ",", 
+         RowBox[{"Alignment", "\[Rule]", "Center"}]}], "]"}], ",", 
+       RowBox[{"SetterBar", "[", 
+        RowBox[{
+         RowBox[{"Dynamic", "[", "type", "]"}], ",", 
+         RowBox[{"{", 
+          RowBox[{
+          "\"\<Histogram\>\"", ",", "\"\<Box and Whisker\>\"", ",", 
+           "\"\<Pie Chart\>\""}], "}"}]}], "]"}], ",", 
+       RowBox[{"Dynamic", "[", 
+        RowBox[{"plotTypes", "[", 
+         RowBox[{"type", ",", "x"}], "]"}], "]"}]}], "}"}], "]"}]}], ",", 
+   "\[IndentingNewLine]", 
+   RowBox[{"Initialization", "\[RuleDelayed]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"stats", "[", "x_", "]"}], " ", ":=", " ", 
+      RowBox[{"Column", "[", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Measuring the Location Statistics of the Data\>\"", ",", 
+             "\"\<Subsubtitle\>\""}], "]"}], ",", 
+           "\"\<Location Statistics, or Central Tendency, means looking at \
+the middle of the data. These measurments are commenly known as \
+averages\>\""}], "]"}], ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"\"\<Mean = \>\"", " ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"N", "[", 
+              RowBox[{
+               RowBox[{"Mean", "[", 
+                RowBox[{
+                "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}],
+                 "]"}], ",", "3"}], "]"}], "]"}]}], ",", 
+           "\"\<The mean is the average: we calculate it by adding all the \
+data points together and dividing that by the number of data points there are\
+\>\""}], "]"}], ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"\"\<Median = \>\"", " ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"N", "[", 
+              RowBox[{
+               RowBox[{"Median", "[", 
+                RowBox[{
+                "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}],
+                 "]"}], ",", "3"}], "]"}], "]"}]}], ",", 
+           "\"\<The median is the middle number: we calculate this by putting \
+all the data points in order and finding the one in the middle\>\""}], "]"}], 
+         ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"\"\<Modes = \>\"", " ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"Commonest", "[", 
+              RowBox[{
+              "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}], 
+              "]"}], "]"}]}], ",", 
+           "\"\<The mode is the most common number in a data set\>\""}], 
+          "]"}], ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"Style", "[", 
+            RowBox[{
+            "\"\<Measuring the Dispersion of the Data\>\"", ",", 
+             "\"\<Subsubtitle\>\""}], "]"}], ",", 
+           "\"\<Measuring the dispersion, or spread, means that we can see \
+how varied or diverse the data is\>\""}], "]"}], ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"\"\<Range = \>\"", " ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"Abs", "[", 
+              RowBox[{
+               RowBox[{"Max", "[", 
+                RowBox[{
+                "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}],
+                 "]"}], "-", 
+               RowBox[{"Min", "[", 
+                RowBox[{
+                "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}],
+                 "]"}]}], "]"}], "]"}]}], ",", 
+           "\"\<The range is the difference between the biggest and the \
+smallest data point\>\""}], "]"}], ",", 
+         RowBox[{"Tooltip", "[", 
+          RowBox[{
+           RowBox[{"\"\<Interquartile Range = \>\"", " ", 
+            RowBox[{"Dynamic", "[", 
+             RowBox[{"N", "[", 
+              RowBox[{
+               RowBox[{"InterquartileRange", "[", 
+                RowBox[{
+                "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}],
+                 "]"}], ",", "3"}], "]"}], "]"}]}], ",", 
+           "\"\<The interquartile range is the difference between the 75% \
+percentile and the 25% percentile data points. This is useful because we are \
+ignoring all the outliers\>\""}], "]"}], ",", 
+         RowBox[{"\"\<Number of Responses = \>\"", " ", 
+          RowBox[{"Dynamic", "[", 
+           RowBox[{"Length", "[", 
+            RowBox[{
+            "val", "\[LeftDoubleBracket]", "x", "\[RightDoubleBracket]"}], 
+            "]"}], "]"}]}]}], "}"}], "\[IndentingNewLine]", "]"}]}], 
+     ")"}]}]}], "\[IndentingNewLine]", "]"}]}], "Input",
+ CellChangeTimes->{{3.74007282971839*^9, 3.740072860445263*^9}, {
+   3.740073023370996*^9, 3.740073025005208*^9}, 3.740089179912402*^9},
+ CellID->2112107253,ExpressionUUID->"2696a13f-c455-4db1-bc64-30d337e9e54a"],
+
+Cell["\<\
+Have students play around with the different combinations and encourage them \
+to think about why some of the charts are useful or otherwise.
+\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.74006266776206*^9, 3.7400626842834883`*^9}, {3.7400701994855757`*^9, 
+   3.7400702649817667`*^9}, {3.740073076808682*^9, 3.74007314897875*^9}, {
+   3.740073491824827*^9, 3.74007351927488*^9}, {3.7400762646133947`*^9, 
+   3.740076305562744*^9}, 3.740079877550337*^9, {3.740133316900984*^9, 
+   3.74013332050998*^9}},
+ CellTags->"Statement",
+ CellID->131952837,ExpressionUUID->"55424433-f8e3-472f-8562-6d0d18faf68f"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  What categories of data did we gather? Words vs Numbers? Continuous vs \
+discreet vs categoric? How can we best visualize these different types of \
+data? (for example, a Pie Chart is not a good way of visualizing heights, it \
+doesn\[CloseCurlyQuote]t tell us much about the data)"
+}], "Suggestion",
+ CellChangeTimes->{{3.6898799379497604`*^9, 3.68987994352297*^9}, {
+   3.740072948492776*^9, 3.7400729642666683`*^9}, {3.74007328380201*^9, 
+   3.740073294931758*^9}, {3.74007528909577*^9, 3.740075291998745*^9}, {
+   3.74008288471196*^9, 3.740082924416154*^9}, 3.740086606313272*^9, {
+   3.7401323012069407`*^9, 3.740132303217547*^9}},
+ CellTags->"Suggested Guides",
+ CellID->6649578,ExpressionUUID->"c5c7b64e-dbfc-470e-987f-f0f483b0161f"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  What happens when you change the width of the bins in your histogram?"
+}], "Suggestion",
+ CellChangeTimes->{
+  3.689700502939632*^9, {3.6898774304385157`*^9, 3.689877433792522*^9}, {
+   3.6898775667655563`*^9, 3.68987756902756*^9}, {3.740072969664625*^9, 
+   3.740072992466937*^9}, {3.740073209062248*^9, 3.740073211200019*^9}, {
+   3.740073356631671*^9, 3.740073390664847*^9}},
+ CellTags->"Suggested Guides",
+ CellID->207710212,ExpressionUUID->"b2978f89-2a99-4592-aeb1-82af4267c3c8"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  What is the point of creating visualizations and looking at descriptive \
+statistics? Why not just look at the data itself?"
+}], "Suggestion",
+ CellChangeTimes->{
+  3.689700502939632*^9, {3.6898774304385157`*^9, 3.689877433792522*^9}, {
+   3.6898775667655563`*^9, 3.68987756902756*^9}, {3.740072969664625*^9, 
+   3.740072992466937*^9}, {3.740073209062248*^9, 3.740073211200019*^9}, {
+   3.740073356631671*^9, 3.740073390664847*^9}, {3.740073530639946*^9, 
+   3.740073561405878*^9}},
+ CellTags->"Suggested Guides",
+ CellID->529262011,ExpressionUUID->"21e0f2bf-989f-4d37-94c3-c142b90dc3a6"],
+
+Cell[CellGroupData[{
+
+Cell["CHECKPOINT", "Checkpoint",
+ CellChangeTimes->{3.6899519743200808`*^9},
+ CellID->1631262439,ExpressionUUID->"45e95659-0f5b-456d-a68e-417f16860b69"],
+
+Cell["\<\
+Check that students understand the concept of having different types of data \
+(continuous, discreet and categoric), and good ways of visualizing the \
+different types.\
+\>", "SectionText",
+ CellChangeTimes->{{3.6897005169856243`*^9, 3.6897005176313143`*^9}, {
+  3.6897008855702543`*^9, 3.68970089655268*^9}, {3.6898778301114206`*^9, 
+  3.6898778443718457`*^9}, {3.740073315368729*^9, 3.7400733551836042`*^9}},
+ CellID->1851574671,ExpressionUUID->"62bd8fe6-4d86-447e-aff7-b93d104a6f98"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",
+ CellID->556215197,ExpressionUUID->"7ca65a05-e5b3-4f13-8ba1-1d43a7c6e418"],
+
+Cell["\[OpenCurlyDoubleQuote]What can we find out using this data?\
+\[CloseCurlyDoubleQuote]", "Statement",
+ CellChangeTimes->{{3.6898781254115424`*^9, 3.6898781387359657`*^9}, {
+   3.689878640532387*^9, 3.6898786512380056`*^9}, 3.6899519811297817`*^9, {
+   3.740073590239053*^9, 3.740073612441683*^9}, {3.740077177988351*^9, 
+   3.740077187286933*^9}},
+ CellTags->"Statement",
+ CellID->92930560,ExpressionUUID->"911fe31d-734f-46c2-aebd-8a392f4afce2"],
+
+Cell["\<\
+When we run the function above, we are presented with lots of descriptive \
+statistics alongside the charts. These statistics are organized into two \
+categories: Location Statistics and Dispersion Statistics. Hovering over each \
+number gives us a brief description of what that particular statistic means. \
+This is a good opportunity to go over how descriptive statistics work.
+
+Now that students have explored the data, their next task is to come up with \
+a series of hypotheses, or predictions, about the data. Perhaps the student \
+has noticed that the distribution of \[OpenCurlyQuote]minutes of exercise\
+\[CloseCurlyQuote] and \[OpenCurlyQuote]weight\[CloseCurlyQuote] are similar. \
+In order to test their hypothesis, they could compare the box and whisker \
+charts for each data set. They could also compare the descriptive statistics. \
+Perhaps the range is similar?
+\
+\>", "Hint",
+ CellChangeTimes->{
+  3.689699769952385*^9, 3.6899517942033653`*^9, {3.689954462376891*^9, 
+   3.689954506871324*^9}, {3.739915333030025*^9, 3.739915367222419*^9}, {
+   3.739915641722554*^9, 3.739915685844398*^9}, {3.739916149708416*^9, 
+   3.739916252715213*^9}, {3.739916286028574*^9, 3.73991634925736*^9}, {
+   3.74006266776206*^9, 3.7400626842834883`*^9}, {3.7400701994855757`*^9, 
+   3.7400702649817667`*^9}, {3.740073076808682*^9, 3.74007314897875*^9}, {
+   3.740073491824827*^9, 3.74007351927488*^9}, {3.7400736435052*^9, 
+   3.740073647127015*^9}, {3.7400751117510967`*^9, 3.7400752078888397`*^9}, {
+   3.740077189236562*^9, 3.740077262823339*^9}, {3.740077497418092*^9, 
+   3.740077582113781*^9}, {3.740077681038375*^9, 3.740077688459567*^9}, {
+   3.740078322215691*^9, 3.74007838502934*^9}, {3.740080931928516*^9, 
+   3.740080931959581*^9}, 3.740088659873814*^9, 3.7400887073504353`*^9},
+ CellTags->"Statement",
+ CellID->1631879506,ExpressionUUID->"a05fa821-72c7-4e68-a4ac-a0127be2106f"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  What do descriptive statistics show us about the data?"
+}], "Suggestion",
+ CellChangeTimes->{{3.68987826009398*^9, 3.689878268504395*^9}, {
+  3.68987836929778*^9, 3.6898783952426257`*^9}, {3.6898784991661196`*^9, 
+  3.689878502834126*^9}, {3.689878537393187*^9, 3.6898785696600437`*^9}, {
+  3.740078388768351*^9, 3.740078418110474*^9}, {3.7400883225022078`*^9, 
+  3.740088322948605*^9}},
+ CellTags->"Suggested Guides",
+ CellID->93889417,ExpressionUUID->"24cefafb-3285-4496-ab5c-e2b818238a5d"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  Why do we look at Location Statistics and Dispersion Statistics? What \
+different things to they tell us about the data?"
+}], "Suggestion",
+ CellChangeTimes->{{3.68987826009398*^9, 3.689878268504395*^9}, {
+   3.68987836929778*^9, 3.6898783952426257`*^9}, {3.6898784991661196`*^9, 
+   3.689878502834126*^9}, {3.689878537393187*^9, 3.6898785696600437`*^9}, {
+   3.740078388768351*^9, 3.740078418110474*^9}, {3.740088296439517*^9, 
+   3.740088316205216*^9}, 3.7400886721202106`*^9, 3.740088710158722*^9},
+ CellTags->"Suggested Guides",
+ CellID->1736705465,ExpressionUUID->"ab349235-d3c5-463c-8047-53ab28b2565a"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  What other ways can we think of for displaying two sets of data?"
+}], "Suggestion",
+ CellChangeTimes->{{3.689878657027616*^9, 3.68987865918042*^9}, {
+  3.6898787950338597`*^9, 3.6898788551501665`*^9}, {3.689951992048407*^9, 
+  3.689952001286593*^9}, {3.7400784243626127`*^9, 3.740078440250041*^9}},
+ CellTags->"Suggested Guides",
+ CellID->104680239,ExpressionUUID->"82244771-d67a-44bd-87c6-5403d8830f16"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  If students come up with hypotheses about correlation, help them to \
+experiment with making a ",
+ StyleBox[ButtonBox["ListPlot",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://reference.wolfram.com/language/ref/ListPlot.html"], None},
+  ButtonNote->"http://reference.wolfram.com/language/ref/ListPlot.html"], 
+  "Input"],
+ " (scatter graph) in order to see how the two sets of data relate to each \
+other. In order to do this, they\[CloseCurlyQuote]ll need to create an ",
+ StyleBox[ButtonBox["AssociationThread",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["http://reference.wolfram.com/language/ref/AssociationThread.html"], 
+    None},
+  ButtonNote->
+   "http://reference.wolfram.com/language/ref/AssociationThread.html"], 
+  "Input"],
+ " between the two data sets (they can copy the list of the data from each \
+tab), and then feed that into ListPlot. This can show the students how the \
+data looks when compared on a scatter graph. Point the students to the \
+relevant documentation and have them figure this out.\n\t",
+ StyleBox["ListPlot[AssociationThread[{1,2,3,4,5,6,7},{8,9,10,11,12,13,14}]]",
+   "Input"]
+}], "Suggestion",
+ CellChangeTimes->{
+  3.6898785207137575`*^9, {3.740078446467607*^9, 3.740078557630773*^9}, {
+   3.740078696836182*^9, 3.740078711973939*^9}, {3.7400787678123627`*^9, 
+   3.740078833431238*^9}, {3.7400788958673162`*^9, 3.740078896756817*^9}, {
+   3.7400790928585167`*^9, 3.740079172818441*^9}, {3.7400835412830477`*^9, 
+   3.7400836800313673`*^9}, {3.7400837146082172`*^9, 3.740083738849547*^9}},
+ CellTags->"Suggested Guides",
+ CellID->287995893,ExpressionUUID->"cb7194c6-f5eb-4138-8115-1986d0693035"],
+
+Cell[CellGroupData[{
+
+Cell["CHECKPOINT", "Checkpoint",
+ CellChangeTimes->{3.689952011081397*^9},
+ CellID->518318108,ExpressionUUID->"22e5fe61-1f75-4488-a65d-b6de23b61515"],
+
+Cell["\<\
+Check that students have made at least one hypothesis and used the graphs and \
+descriptive statistics to give evidence for or against their hypothesis\
+\>", "SectionText",
+ CellChangeTimes->{{3.6898786623784256`*^9, 3.689878720906129*^9}, 
+   3.6898788735173993`*^9, {3.6899520150441017`*^9, 3.6899520181076393`*^9}, {
+   3.740079179851617*^9, 3.740079223391425*^9}},
+ CellID->96868880,ExpressionUUID->"5bb7f82c-53a5-41b1-9766-1df9746ba69a"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",
+ CellID->553410930,ExpressionUUID->"bb3a903d-c621-4f8e-beee-d78677a71df4"],
+
+Cell["\<\
+\[OpenCurlyDoubleQuote]We want to be able to show other people what we\
+\[CloseCurlyQuote]ve discovered about our data.\[CloseCurlyDoubleQuote]\
+\>", "Statement",
+ CellChangeTimes->{
+  3.689701330555829*^9, {3.689879463599242*^9, 3.689879484165079*^9}, {
+   3.689952130011487*^9, 3.689952131745101*^9}, {3.690031684895513*^9, 
+   3.6900316868129673`*^9}, {3.740083783782723*^9, 3.740083806381907*^9}, {
+   3.740083897381221*^9, 3.74008389880441*^9}},
+ CellTags->"Statement",
+ CellID->425825353,ExpressionUUID->"79af7430-7282-4a7e-8463-577898c0491c"],
+
+Cell["\<\
+Students should have found a series of useful data visualizations and \
+statistics which describe their data set. They can now work on curating these \
+plots into a notebook or other document. Have students copy the most useful \
+charts, and write explanations of what the chart shows. (Students can right \
+click on the chart and click \[OpenCurlyQuote]Copy Graphic\[CloseCurlyQuote]). 
+\
+\>", "Hint",
+ CellChangeTimes->{{3.689701347588015*^9, 3.68970135372139*^9}, {
+  3.6898795326735644`*^9, 3.6898795458419876`*^9}, {3.689952140695229*^9, 
+  3.689952156185113*^9}, {3.689954451026433*^9, 3.689954452666038*^9}, {
+  3.740086647808784*^9, 3.740086651836855*^9}, {3.740087040896162*^9, 
+  3.7400871212748337`*^9}, {3.74008761170828*^9, 3.740087635229576*^9}, {
+  3.740088070999868*^9, 3.740088118134942*^9}, {3.7400909841725073`*^9, 
+  3.7400910466350393`*^9}},
+ CellTags->"Hint",
+ CellID->774372273,ExpressionUUID->"17bf9d91-fc56-4379-8ee6-21c89fa559ff"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  Why do we use data visualizations instead of just showing the data?"
+}], "Suggestion",
+ CellChangeTimes->{
+  3.689701371498867*^9, {3.6898803799485607`*^9, 3.6898803866273727`*^9}, {
+   3.689880730679188*^9, 3.6898807508852234`*^9}, 3.6899521649877043`*^9, {
+   3.7400881228257923`*^9, 3.740088162856236*^9}},
+ CellTags->"Suggested Guides",
+ CellID->112482528,ExpressionUUID->"9e5a05c1-0bdc-472e-89e8-7d5326bfd770"],
+
+Cell[TextData[{
+ StyleBox["\[FilledSmallSquare]",
+  FontColor->GrayLevel[0.5]],
+ "  Why do some charts explain/describe the data better than others?"
+}], "Suggestion",
+ CellChangeTimes->{
+  3.689701371498867*^9, {3.6898803799485607`*^9, 3.6898803866273727`*^9}, {
+   3.689880730679188*^9, 3.6898807508852234`*^9}, 3.6899521649877043`*^9, {
+   3.7400881228257923`*^9, 3.7400881798871307`*^9}},
+ CellTags->"Suggested Guides",
+ CellID->1316931753,ExpressionUUID->"cea84180-edd8-4fb5-b54c-ea6fcc1def7c"],
+
+Cell[CellGroupData[{
+
+Cell["CHECKPOINT", "Checkpoint",
+ CellChangeTimes->{3.6899521803953114`*^9},
+ CellID->1741076332,ExpressionUUID->"70e046bd-e9ff-4598-b545-c823e4bd3b75"],
+
+Cell["\<\
+Check to see that all students have understood why data is easier to \
+understand when it\[CloseCurlyQuote]s in graphs rather than just numbers, and \
+which graphs are better for displaying which data types. Check they \
+understand the concepts of Location Statistics and Dispersion Statistics, and \
+why these are important in understanding the data.\
+\>", "SectionText",
+ CellChangeTimes->{{3.689701409617281*^9, 3.689701418470817*^9}, 
+   3.6898804437790756`*^9, {3.689880479030538*^9, 3.689880479438139*^9}, {
+   3.689880543991453*^9, 3.689880549326662*^9}, {3.740088186195984*^9, 
+   3.7400882827249737`*^9}, 3.7400886774849577`*^9, 3.740088712800949*^9, {
+   3.740091525715856*^9, 3.7400915385933437`*^9}},
+ CellID->657737902,ExpressionUUID->"e57149ab-0c4a-441d-8f4a-b25f58dfd53d"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",ExpressionUUID->"8e2d93c3-26cd-4b2e-b91d-960f373032ae"],
+
+Cell[CellGroupData[{
+
+Cell["FINAL POINT", "Section",
+ CellMargins->{{66, 0.}, {
+   4, 28.}},ExpressionUUID->"ca23ef5a-6dc8-41a1-9069-a769ac4129d7"],
+
+Cell["Ten minutes before the end of the module time.", "SectionText",
+ CellChangeTimes->{{3.689952195150935*^9, 
+  3.6899522031595078`*^9}},ExpressionUUID->"6a7f1639-e30c-4c6b-b535-\
+31f93b691077"],
+
+Cell[CellGroupData[{
+
+Cell["Summarize", "Subsection",ExpressionUUID->"5b5c11d9-a318-41cd-9fc7-53478f937b2c"],
+
+Cell["\<\
+Summarize what was done in the module and talk about findings.\
+\>", "Text",
+ CellChangeTimes->{{3.689952205561255*^9, 
+  3.689952208771948*^9}},ExpressionUUID->"5dfb3f9e-851a-4a9a-9412-\
+ef02f1264f86"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Refer", "Subsection",ExpressionUUID->"94a186a4-010e-4551-9686-c1601ae3cae6"],
+
+Cell["\<\
+Refer back to the learning objective and summarize how you have reached it.\
+\>", "Text",
+ CellChangeTimes->{{3.689952210987718*^9, 
+  3.6899522145952587`*^9}},ExpressionUUID->"20e05fc7-bde2-46b7-803c-\
+390b9de5c493"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Extend", "Subsection",ExpressionUUID->"819855f7-1744-490e-9241-ad6ec72178ba"],
+
+Cell["\<\
+Extend the module to the future. For example, \[OpenCurlyDoubleQuote]Try \
+writing a Computational Essay showing your findings in your data. Use useful \
+plots and statistics to describe your data and communicate your findings.\
+\[CloseCurlyDoubleQuote]\
+\>", "Text",
+ CellChangeTimes->{
+  3.689701515360965*^9, {3.689952216739046*^9, 3.68995221772316*^9}, {
+   3.740088379121702*^9, 
+   3.740088442241953*^9}},ExpressionUUID->"817a34ea-34ba-4a33-9dc6-\
+f3830b74ad52"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["", "SectionDivider",ExpressionUUID->"e95d5290-1694-4109-bb29-a5d31b8298e9"],
+
+Cell[CellGroupData[{
+
+Cell["Possible Additional Relevant Functions", "Subsection",ExpressionUUID->"2db44676-76ff-47c7-ae27-a4bb07ebb10d"],
+
+Cell["\<\
+ListLinePlot \[Bullet] Correlation \[Bullet] StandardDeviation \[Bullet] \
+Variance \[Bullet] Skewness\
+\>", "SeeAlso",
+ CellChangeTimes->{{3.6896258759957237`*^9, 3.689625876553977*^9}, {
+  3.6897015182304296`*^9, 3.6897015325725393`*^9}, {3.7400884550979357`*^9, 
+  3.740088567044755*^9}, {3.740091544735079*^9, 
+  3.740091555996654*^9}},ExpressionUUID->"7ac585f0-2984-4d4a-bb2c-\
+c72c599fa6d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Possible Pitfalls", "Subsection",ExpressionUUID->"342522d5-ff29-49c7-bf04-7a9961d17b55"],
+
+Cell[TextData[{
+ "Students may not be familiar with the pure function syntax used in the ",
+ StyleBox["FormPage", "Code"]
+}], "PitfallItem",
+ CellChangeTimes->{3.689701537639407*^9, 
+  3.689952227473123*^9},ExpressionUUID->"71b519f4-ef21-4ccd-9c22-\
+c2c82103d723"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{833, 938},
+WindowMargins->{{Automatic, -3}, {Automatic, 3}},
+WindowStatusArea->None,
+DockedCells->Cell[
+  BoxData[
+   GridBox[{{
+      InterpretationBox[
+       StyleBox[
+        GraphicsBox[{}, BaselinePosition -> Baseline, ImageSize -> {4, 0}], 
+        CacheGraphics -> False], 
+       Spacer[5]], 
+      PaneSelectorBox[{False -> PanelBox[
+          TagBox[
+           ButtonBox[
+            
+            PaneSelectorBox[{
+             False -> StyleBox["\"Computational Thinking Initiative\"", 
+                RGBColor[
+                 Rational[84, 85], 
+                 Rational[64, 255], 
+                 Rational[2, 255]], FontFamily -> "Source Sans Pro", FontSize -> 
+                19, FontWeight -> "SemiBold", FontColor -> RGBColor[
+                  Rational[84, 85], 
+                  Rational[64, 255], 
+                  Rational[2, 255]], StripOnInput -> False], True -> StyleBox[
+                StyleBox["\"Computational Thinking Initiative\"", 
+                 RGBColor[
+                  Rational[84, 85], 
+                  Rational[64, 255], 
+                  Rational[2, 255]], FontFamily -> "Source Sans Pro", 
+                 FontSize -> 19, FontWeight -> "SemiBold", FontColor -> 
+                 RGBColor[
+                   Rational[84, 85], 
+                   Rational[64, 255], 
+                   Rational[2, 255]], StripOnInput -> False], {
+                "HyperlinkActive"}]}, 
+             Dynamic[
+              CurrentValue["MouseOver"], ImageSizeCache -> {39., {1., 10.}}], 
+             BaseStyle -> {"Hyperlink"}, FrameMargins -> 0, ImageSize -> 
+             Automatic], BaseStyle -> "Hyperlink", ButtonData -> {
+              URL["http://www.computationinitiative.org"], None}, ButtonNote -> 
+            "http://www.computationinitiative.org/home"], 
+           Annotation[#, "http://www.computationinitiative.org/home", 
+            "Hyperlink"]& ], Background -> GrayLevel[1], Appearance -> 
+          "Frameless"], True -> PanelBox[
+          TagBox[
+           ButtonBox[
+            
+            PaneSelectorBox[{
+             False -> StyleBox[
+               "\"Computational Thinking Initiative\"", FontFamily -> 
+                "Source Sans Pro", FontSize -> 19, FontWeight -> "SemiBold", 
+                FontColor -> 
+                RGBColor[
+                 0.9964705882352941, 0.7752941176470588, 0.7023529411764705], 
+                StripOnInput -> False], True -> StyleBox[
+                StyleBox[
+                "\"Computational Thinking Initiative\"", FontFamily -> 
+                 "Source Sans Pro", FontSize -> 19, FontWeight -> "SemiBold", 
+                 FontColor -> 
+                 RGBColor[
+                  0.9964705882352941, 0.7752941176470588, 0.7023529411764705],
+                  StripOnInput -> False], {"HyperlinkActive"}]}, 
+             Dynamic[
+              CurrentValue["MouseOver"], ImageSizeCache -> {39., {1., 10.}}], 
+             BaseStyle -> {"Hyperlink"}, FrameMargins -> 0, ImageSize -> 
+             Automatic], BaseStyle -> "Hyperlink", ButtonData -> {
+              URL["http://www.computationinitiative.org"], None}, ButtonNote -> 
+            "http://www.computationinitiative.org/home"], 
+           Annotation[#, "http://www.computationinitiative.org/home", 
+            "Hyperlink"]& ], Background -> GrayLevel[1], Appearance -> 
+          "Frameless"]}, 
+       Dynamic[
+        CurrentValue["MouseOver"], ImageSizeCache -> {39., {1., 10.}}]], 
+      StyleBox[
+      "|", FontFamily -> "Source Sans Pro", FontSize -> 20, FontWeight -> 
+       "Light", FontColor -> 
+       RGBColor[0.7176470588235294, 0.7176470588235294, 0.7176470588235294]], 
+      AdjustmentBox[
+       StyleBox[
+       "Computational Adventures", FontFamily -> "Source Sans Pro", FontSize -> 
+        19, FontWeight -> "SemiBold", FontColor -> 
+        RGBColor[
+         0.10588235294117647`, 0.5647058823529412, 0.6627450980392157]], 
+       BoxBaselineShift -> 0.2]}}]], TextAlignment -> Left, Background -> 
+  None, CellFrame -> {{0, 0}, {4, 0}}, CellFrameColor -> 
+  RGBColor[1., 0.5607843137254902, 0.17647058823529413`], 
+  CellMargins -> {{0, 0}, {0, 8}}],
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, \
+2018)",
+StyleDefinitions->Notebook[{
+   Cell[
+    StyleData[StyleDefinitions -> "Default.nb"]], 
+   Cell[
+    StyleData["Notebook"], CellLabelAutoDelete -> False, MenuSortingValue -> 
+    10000], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Style Environments", "Section", 
+       CellChangeTimes -> {{3.64661165091824*^9, 3.646611654013329*^9}, 
+         3.6485723794335403`*^9, 3.651347081728628*^9, 3.651347179462186*^9, 
+         3.651347384135805*^9, 3.651348171662589*^9}], 
+      Cell[
+       StyleData[All, "Working"], DockedCells -> {
+         Cell[
+          BoxData[
+           TagBox[
+            GridBox[{{
+               ButtonBox[
+                StyleBox[
+                "\"Wolfram Language Computational Adventure\"", StripOnInput -> 
+                 False, LineColor -> GrayLevel[1], FrontFaceColor -> 
+                 GrayLevel[1], BackFaceColor -> GrayLevel[1], GraphicsColor -> 
+                 GrayLevel[1], FontFamily -> "Source Sans Pro", FontSize -> 
+                 24, FontWeight -> "SemiBold", FontColor -> GrayLevel[1]], 
+                Appearance -> None, ButtonFunction :> NotebookLocate[{
+                   URL["http://wolfr.am/ct-resources"], "_blank"}], Evaluator -> 
+                Automatic, Method -> "Preemptive"]}}, AutoDelete -> False, 
+             GridBoxAlignment -> {"Columns" -> {{Left}}}, 
+             GridBoxItemSize -> {
+              "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"]],
+           "Output", ShowCellBracket -> False, CellMargins -> 0, 
+          CellFrameMargins -> {{53, 0}, {8, 8}}, Background -> 
+          RGBColor[0.9598, 0.3915, 0.0702]]}, CreateCellID -> True, 
+       ShowPredictiveInterface -> False, GhostCellInEmptyNotebook -> False], 
+      Cell[
+       StyleData[All, "Editing"], PageWidth -> WindowWidth, DockedCells -> {
+         Cell[
+          BoxData[
+           GridBox[{{
+              InterpretationBox[
+               StyleBox[
+                
+                GraphicsBox[{}, BaselinePosition -> Baseline, 
+                 ImageSize -> {4, 0}], CacheGraphics -> False], 
+               Spacer[5]], 
+              ActionMenuBox[
+              "\"Insert\"", {"\"Statement Group\"" :> (NotebookWrite[
+                   ButtonNotebook[], {
+                    Cell["", "SectionDivider"], 
+                    Cell[
+                    "\[OpenCurlyDoubleQuote]Statement XXXX\
+\[CloseCurlyDoubleQuote]", "Statement", CellTags -> "Statement"], 
+                    Cell[
+                    BoxData["XXXX"], "Input"], 
+                    Cell[
+                    BoxData["XXXX"], "Output"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  What XXXX? "}], "Suggestion", CellTags -> 
+                    "Suggested Guides"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  Why XXXX?"}], "Suggestion", CellTags -> 
+                    "Suggested Guides"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  How XXXX?"}], "Suggestion", CellTags -> 
+                    "Suggested Guides"], 
+                    Cell["CHECK POINT", "Checkpoint"], 
+                    Cell["When XXXX", "SectionText"]}, All]; SelectionMove[
+                   ButtonNotebook[], Before, Cell]; SelectionMove[
+                   ButtonNotebook[], Next, Cell, 2]; SelectionMove[
+                   ButtonNotebook[], Before, CellContents]; SelectionMove[
+                   ButtonNotebook[], Next, Character]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNextWord"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]), 
+                "\"Statement\"" :> (NotebookWrite[
+                   ButtonNotebook[], 
+                   Cell[
+                   "\[OpenCurlyDoubleQuote]Statement XXXX\
+\[CloseCurlyDoubleQuote]", "Statement", CellTags -> "Statement"], All]; 
+                 SelectionMove[
+                   ButtonNotebook[], Before, CellContents]; SelectionMove[
+                   ButtonNotebook[], Next, Character]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNextWord"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]; FrontEndTokenExecute[
+                   ButtonNotebook[], "SelectNext"]), Delimiter, 
+                "\"Instruction Group\"" :> (NotebookWrite[
+                   ButtonNotebook[], {
+                    Cell["", "SectionDivider"], 
+                    Cell[
+                    "Instruction XXXX", "Statement", CellTags -> "Statement"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  What XXXX? "}], "SuggestionFirst", CellTags -> 
+                    "Suggested Guides"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  Why XXXX?"}], "Suggestion", CellTags -> 
+                    "Suggested Guides"], 
+                    Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  How XXXX?"}], "Suggestion", CellTags -> 
+                    "Suggested Guides"]}, All]; SelectionMove[
+                   ButtonNotebook[], Before, Cell]; SelectionMove[
+                   ButtonNotebook[], Next, Cell, 2]; SelectionMove[
+                   ButtonNotebook[], All, CellContents]), 
+                "\"Instruction\"" :> (NotebookWrite[
+                   ButtonNotebook[], 
+                   Cell[
+                   "Instruction XXXX", "Instruction", CellTags -> 
+                    "Instruction"], All]; SelectionMove[
+                   ButtonNotebook[], All, CellContents]), Delimiter, 
+                "\"Suggestion\"" :> (NotebookWrite[
+                   ButtonNotebook[], 
+                   Cell[
+                    TextData[{
+                    StyleBox[
+                    "\[FilledSmallSquare]", FontColor -> GrayLevel[0.5]], 
+                    "  XXXX?"}], "Suggestion", CellTags -> 
+                    "Suggested Guides"], All]; SelectionMove[
+                   ButtonNotebook[], Before, CellContents]; SelectionMove[
+                   ButtonNotebook[], Next, Word]; SelectionMove[
+                   ButtonNotebook[], Next, Character, 2]; SelectionMove[
+                   ButtonNotebook[], All, Word]), "\"Hint\"" :> (NotebookWrite[
+                   ButtonNotebook[], 
+                   Cell["Hint XXXX", "Hint", CellTags -> "Hint"], All]; 
+                 SelectionMove[
+                   ButtonNotebook[], All, CellContents]), 
+                "\"See Also\"" :> (NotebookWrite[
+                   ButtonNotebook[], " \[Bullet] XXXX", After]; SelectionMove[
+                   ButtonNotebook[], All, Word])}, Appearance -> "PopupMenu", 
+               FrameMargins -> 2.4], 
+              InterpretationBox[
+               StyleBox[
+                
+                GraphicsBox[{}, BaselinePosition -> Baseline, 
+                 ImageSize -> {4, 0}], CacheGraphics -> False], 
+               Spacer[4]], 
+              ButtonBox["\"Code\"", ButtonFunction :> (FrontEndExecute[{
+                   FrontEnd`FrontEndToken[
+                    ButtonNotebook[], "Style", "Code"]}]; SelectionMove[
+                  ButtonNotebook[], After, Word]; FrontEndExecute[
+                  FrontEndToken[
+                   ButtonNotebook[], "ClearCellOptions"]]), Evaluator -> 
+               Automatic, Appearance -> "DialogBox", Method -> "Queued"], 
+              ItemBox["", ItemSize -> Fit]}}]], "DockedCell", 
+          CellFrameMargins -> {{0, 0}, {8, 8}}]}, CreateCellID -> True, 
+       CellLabelMargins -> {{12, Inherited}, {Inherited, Inherited}}, 
+       ShowAutoStyles -> False, ShowPredictiveInterface -> False, 
+       ScriptMinSize -> 9, MenuSortingValue -> 1100, GhostCellInEmptyNotebook -> 
+       False]}, Open]], 
+   Cell[
+    CellGroupData[{
+      Cell[
+      "Custom Styles", "Section", 
+       CellChangeTimes -> {{3.646611660445352*^9, 3.646611669493331*^9}}], 
+      Cell[
+       StyleData["SectionDivider"], CellFrame -> {{0, 0}, {0, 8}}, 
+       CellMargins -> {{0, 0.}, {0, 24}}, 
+       CellElementSpacings -> {"ClosedGroupTopMargin" -> 24}, 
+       CellGroupingRules -> {"SectionGrouping", 30}, 
+       CellFrameMargins -> {{64, 50}, {10, 0}}, CellFrameColor -> 
+       RGBColor[0.976471, 0.329412, 0.0745098], FontFamily -> 
+       "Source Sans Pro", FontSize -> 16, FontWeight -> "Regular", FontSlant -> 
+       "Plain", PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, 
+       FontColor -> GrayLevel[0.2]], 
+      Cell[
+       StyleData["Section"], CellFrame -> None, 
+       CellMargins -> {{66, 0.}, {16, 28.}}, 
+       CellGroupingRules -> {"SectionGrouping", 32}, CellBaseline -> Baseline,
+        FontSize -> 24, FontColor -> 
+       RGBColor[0.9597772182803083, 0.3915007248035401, 0.07022201876859693]], 
+      Cell[
+       StyleData["Checkpoint", StyleDefinitions -> StyleData["Section"]], 
+       CellFrame -> None, CellDingbat -> Cell[
+         BoxData[
+          GraphicsBox[{
+            RGBColor[
+            0.9597772182803083, 0.3915007248035401, 0.07022201876859693], 
+            
+            FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 
+             1, 0}}}, {{{116.4583, 136.5417}, {119.4163, 133.5837}, {105.4583,
+              119.8337}, {97.9583, 127.625}, {101.1253, 130.5837}, {105.4163, 
+             126.0837}}}]}, ImageMargins -> {{0., 0.}, {4.04296875, 0.}}, 
+           ImageSize -> {27., Automatic}]], 
+         CellChangeTimes -> {{3.689512618576535*^9, 3.689512649185444*^9}}], 
+       CellMargins -> {{62, 0.}, {4., 28.}}, 
+       CellGroupingRules -> {"SectionGrouping", 34}, CellBaseline -> Baseline,
+        FontSize -> 18, FontColor -> 
+       RGBColor[0.9597772182803083, 0.3915007248035401, 0.07022201876859693]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["SectionText"], CellMargins -> {{64, 20}, {20, 0}}, 
+          FontFamily -> "Source Sans Pro", FontSize -> 16, FontWeight -> 
+          "Regular", FontSlant -> "Plain", 
+          PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, 
+          FontColor -> GrayLevel[0.2]], 
+         Cell[
+          StyleData["SectionText", "Printout"], 
+          CellMargins -> {{0, 0}, {12, 0}}, 
+          CellFrameMargins -> {{48, 4}, {10, 0}}], 
+         Cell[
+          StyleData["Section", "Printout"], CellMargins -> {{0, 0}, {0, 18}}, 
+          CellFrameMargins -> {{48, 4}, {2, 9}}]}, Closed]], 
+      Cell[
+       StyleData["Subsection"], CellMargins -> {{66, 60}, {2, 16}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 16, FontWeight -> "Bold", 
+       FontColor -> 
+       RGBColor[
+        0.22877851529716944`, 0.5127489127946898, 0.6556954299229419]], 
+      Cell[
+       StyleData["Statement"], CellMargins -> {{66, 60}, {12, 8}}, FontFamily -> 
+       "Source Sans Pro", FontSize -> 16, FontColor -> 
+       RGBColor[
+        0.22877851529716944`, 0.5127489127946898, 0.6556954299229419]], 
+      Cell[
+       StyleData["Instruction"], CellMargins -> {{66, 60}, {12, 8}}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 16, FontColor -> 
+       RGBColor[
+        0.22877851529716944`, 0.5127489127946898, 0.6556954299229419]], 
+      Cell[
+       StyleData["Action"], CellMargins -> {{66, 60}, {12, 20}}, FontFamily -> 
+       "Source Sans Pro", FontSize -> 16, FontColor -> 
+       RGBColor[
+        0.22877851529716944`, 0.5127489127946898, 0.6556954299229419]], 
+      Cell[
+       StyleData["Hint"], CellMargins -> {{66, 60}, {2, 10}}, FontFamily -> 
+       "Source Sans Pro", FontSize -> 15, FontWeight -> "Regular", FontSlant -> 
+       "Plain", PrivateFontOptions -> {"FontPostScriptName" -> "Automatic"}, 
+       FontColor -> 
+       RGBColor[
+        0.36681162737468526`, 0.36681162737468526`, 0.36681162737468526`]], 
+      Cell[
+       StyleData["Title"], CellMargins -> {{49, 3}, {20, 40}}, 
+       LineSpacing -> {0.85, 3}, FontFamily -> "Source Sans Pro", FontSize -> 
+       46, FontWeight -> "SemiBold", FontColor -> 
+       RGBColor[
+        0.09411764705882353, 0.42745098039215684`, 0.5372549019607843]], 
+      Cell[
+       StyleData["ModuleDescription", StyleDefinitions -> StyleData["Text"]], 
+       CellMargins -> {{50.98046875, 30}, {7., 7.}}, LineSpacing -> {1, 3}, 
+       FontFamily -> "Source Sans Pro", FontSize -> 16, FontWeight -> 
+       "Regular", FontColor -> 
+       RGBColor[
+        0.07467765316243229, 0.26338597695887694`, 0.36227969787136644`], 
+       Background -> 
+       RGBColor[0.8683299000534066, 0.9385214007782101, 0.9395895323109789]], 
+      Cell[
+       StyleData["Comment", StyleDefinitions -> StyleData["Text"]], 
+       CellMargins -> {{50.98046875, 60}, {7., 7.}}, FontFamily -> 
+       "Source Sans Pro", FontWeight -> "Regular", FontColor -> 
+       RGBColor[
+        0.07467765316243229, 0.26338597695887694`, 0.36227969787136644`], 
+       Background -> 
+       RGBColor[0.9015030136568246, 0.9546349279011216, 0.9544518196383612]], 
+      Cell[
+       StyleData["SubComment", StyleDefinitions -> StyleData["Text"]], 
+       CellMargins -> {{50.98046875, 60}, {7., 7.}}, FontWeight -> "Regular", 
+       FontColor -> GrayLevel[0.35], Background -> 
+       RGBColor[0.9390249485008011, 0.938979171435111, 0.9390096894789044]], 
+      Cell[
+       StyleData["Suggestion", StyleDefinitions -> StyleData["Text"]], 
+       CellMargins -> {{60, 60.}, {0., 0.}}, 
+       CellFrameMargins -> {{10, 30}, {6, 6}}, ParagraphIndent -> -11, 
+       FontFamily -> "Source Sans Pro", FontSize -> 13, FontWeight -> 
+       "Regular", FontColor -> GrayLevel[0.2], Background -> GrayLevel[0.93]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData[
+          "SuggestionFirst", StyleDefinitions -> StyleData["Suggestion"]], 
+          CellMargins -> {{60, 60}, {0, 20}}], 
+         Cell[
+          StyleData["Comment", "Printout"], 
+          CellMargins -> {{50, 30}, {7., 7.}}]}, Closed]], 
+      Cell[
+       StyleData["SectionContent", StyleDefinitions -> StyleData["Text"]], 
+       CellDingbat -> "\[GraySquare]", TabSpacings -> 0.1, FontFamily -> 
+       "Source Sans Pro", FontSize -> 16, FontWeight -> "Regular"], 
+      Cell[
+       StyleData[
+       "SectionHeader", StyleDefinitions -> StyleData["Subsection"]], 
+       CellMargins -> {{50, 3}, {2, 10}}, FontFamily -> "Source Sans Pro", 
+       FontSize -> 16, FontWeight -> "Regular"], 
+      Cell[
+       StyleData["Input"], CellMargins -> {{68, 10}, {5, 8}}, 
+       CellLabelAutoDelete -> False], 
+      Cell[
+       StyleData["Output"], CellMargins -> {{68, 10}, {18, 5}}, 
+       CellLabelAutoDelete -> False], 
+      Cell[
+       StyleData["Code"], CellLabelAutoDelete -> False, FontFamily -> 
+       "Source Code Pro", FontSize -> 14.5, Background -> None], 
+      Cell[
+       StyleData["SmallCode", StyleDefinitions -> StyleData["Code"]], 
+       FontSize -> 12.25], 
+      Cell[
+       StyleData["SeeAlso", StyleDefinitions -> StyleData["Text"]], 
+       CellMargins -> {{66, 3}, {8, 2}}, FontFamily -> "Source Code Pro", 
+       FontSize -> 14.5, FontWeight -> "Bold", FontColor -> 
+       RGBColor[0.11583123521782254`, 0.4088654917219806, 0.5396658274204623],
+        Background -> 
+       RGBColor[0.9015030136568246, 0.9546349279011216, 0.9544518196383612]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Item"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.0862745, 0.532941, 0.662745]], 
+          CellMargins -> {{63, 12}, {4, 4}}, FontFamily -> "Source Sans Pro", 
+          FontSize -> 16], 
+         Cell[
+          StyleData["Item", "Printout"], CellMargins -> {{48, 12.}, {4., 4.}},
+           FontSize -> 16]}, Closed]], 
+      Cell[
+       CellGroupData[{
+         Cell[
+          StyleData["Subitem"], CellDingbat -> 
+          StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+            RGBColor[0.5, 0.5, 0.5]], CellMargins -> {{79, 12}, {4, 4}}, 
+          FontFamily -> "Source Sans Pro", FontSize -> 15], 
+         Cell[
+          StyleData["Subitem", "Printout"], 
+          CellMargins -> {{64, 12.}, {4., 4.}}, FontSize -> 15]}, Closed]], 
+      Cell[
+       StyleData["PitfallItem"], CellDingbat -> 
+       StyleBox["\[FilledSmallSquare]", Alignment -> Baseline, 
+         RGBColor[0.0862745, 0.532941, 0.662745]], 
+       CellMargins -> {{82, 12}, {4, 4}}, FontFamily -> "Source Sans Pro", 
+       FontSize -> 16]}, Open]]}, Visible -> False, FrontEndVersion -> 
+  "11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 7, 2018)", 
+  StyleDefinitions -> "PrivateStylesheetFormatting.nb"]
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{
+ "Title"->{
+  Cell[580, 22, 323, 4, 119, "Title",ExpressionUUID->"a0dcb453-6446-4ef5-8ad6-b1fb076cac42",
+   CellTags->"Title"]},
+ "Module Description"->{
+  Cell[906, 28, 2534, 60, 257, "ModuleDescription",ExpressionUUID->"19c02064-b003-4abe-a471-ee158aad0098",
+   CellTags->"Module Description"]},
+ "Section Header"->{
+  Cell[3465, 92, 130, 2, 33, "SectionHeader",ExpressionUUID->"3244ddce-1151-4a5d-b297-9028eeea907f",
+   CellTags->"Section Header"],
+  Cell[4065, 109, 159, 2, 33, "SectionHeader",ExpressionUUID->"fa2f0791-79d5-41af-b5bc-f022d41664f4",
+   CellTags->"Section Header"],
+  Cell[4522, 123, 155, 3, 33, "SectionHeader",ExpressionUUID->"48f8d30a-47b5-42ba-8c00-d87038ab5e18",
+   CellTags->"Section Header"],
+  Cell[4906, 136, 154, 3, 33, "SectionHeader",ExpressionUUID->"e747df6f-dd27-4133-b607-6495d3f4cf77",
+   CellTags->"Section Header"]},
+ "Item"->{
+  Cell[3598, 96, 430, 8, 51, "Item",ExpressionUUID->"0a5d1e4b-fb73-4366-8af8-b7a02187031e",
+   CellTags->"Item"],
+  Cell[4227, 113, 258, 5, 29, "Item",ExpressionUUID->"c855dbe1-7b4c-4dba-b8cb-36293e83baed",
+   CellTags->"Item",
+   CellID->1263652807],
+  Cell[4680, 128, 189, 3, 29, "Item",ExpressionUUID->"02605444-e328-4926-8bd0-0624beb19f8f",
+   CellTags->"Item"],
+  Cell[5063, 141, 235, 3, 29, "Item",ExpressionUUID->"badd51da-d62b-4793-94a2-70dfc7d22c4c",
+   CellTags->"Item"]},
+ "Statement"->{
+  Cell[5584, 158, 358, 5, 41, "Statement",ExpressionUUID->"54a9778a-f204-4455-907e-4332d29da740",
+   CellTags->"Statement"],
+  Cell[5945, 165, 478, 10, 32, "Hint",ExpressionUUID->"d74a9a9a-90a4-4a9e-8cce-edb21bdba025",
+   CellTags->"Statement",
+   CellID->2055985095],
+  Cell[6683, 184, 355, 6, 41, "Statement",ExpressionUUID->"708a1c39-d62f-48cf-b463-1c3c83500bc6",
+   CellTags->"Statement",
+   CellID->1183425932],
+  Cell[12378, 314, 498, 10, 53, "Hint",ExpressionUUID->"20fae844-c751-4480-bde2-fc80905e46c7",
+   CellTags->"Statement",
+   CellID->213552572],
+  Cell[13020, 330, 932, 16, 95, "Hint",ExpressionUUID->"77850367-bd3f-4cbd-814d-0059101dfcf1",
+   CellTags->"Statement",
+   CellID->1944680335],
+  Cell[14546, 364, 559, 10, 32, "Hint",ExpressionUUID->"9631fce7-37e3-434a-92f4-fb0bdf895c3a",
+   CellTags->"Statement",
+   CellID->2076188951],
+  Cell[16176, 400, 855, 16, 53, "Hint",ExpressionUUID->"66e932ce-2e41-48dc-907c-40841a5f85bc",
+   CellTags->"Statement",
+   CellID->794125135],
+  Cell[18019, 448, 488, 10, 41, "Statement",ExpressionUUID->"09957eda-e7be-4393-b4e3-dc131831d20a",
+   CellTags->"Statement"],
+  Cell[18510, 460, 575, 9, 74, "Hint",ExpressionUUID->"2f923efb-22f3-4698-8116-d5125ffb9479",
+   CellTags->"Statement"],
+  Cell[19815, 494, 383, 6, 41, "Statement",ExpressionUUID->"180a5b73-731c-461a-a391-74603c192088",
+   CellTags->"Statement",
+   CellID->583969136],
+  Cell[20201, 502, 868, 14, 74, "Hint",ExpressionUUID->"703c1379-8139-44f5-82c4-8b90881b694d",
+   CellTags->"Statement",
+   CellID->1741602656],
+  Cell[32993, 807, 897, 16, 74, "Hint",ExpressionUUID->"55424433-f8e3-472f-8562-6d0d18faf68f",
+   CellTags->"Statement",
+   CellID->131952837],
+  Cell[36792, 892, 451, 7, 41, "Statement",ExpressionUUID->"911fe31d-734f-46c2-aebd-8a392f4afce2",
+   CellTags->"Statement",
+   CellID->92930560],
+  Cell[37246, 901, 1902, 30, 221, "Hint",ExpressionUUID->"a05fa821-72c7-4e68-a4ac-a0127be2106f",
+   CellTags->"Statement",
+   CellID->1631879506],
+  Cell[43437, 1030, 559, 10, 41, "Statement",ExpressionUUID->"79af7430-7282-4a7e-8463-577898c0491c",
+   CellTags->"Statement",
+   CellID->425825353]},
+ "Suggested Guides"->{
+  Cell[10482, 273, 699, 13, 69, "Suggestion",ExpressionUUID->"d6abefba-6a3a-4d24-b234-3ce37fbee4bc",
+   CellTags->"Suggested Guides",
+   CellID->62537317],
+  Cell[11184, 288, 1191, 24, 69, "Suggestion",ExpressionUUID->"8e1b6afa-eb8a-4017-8772-b0bceb679c28",
+   CellTags->"Suggested Guides",
+   CellID->945183436],
+  Cell[33893, 825, 824, 14, 69, "Suggestion",ExpressionUUID->"c5c7b64e-dbfc-470e-987f-f0f483b0161f",
+   CellTags->"Suggested Guides",
+   CellID->6649578],
+  Cell[34720, 841, 568, 11, 29, "Suggestion",ExpressionUUID->"b2978f89-2a99-4592-aeb1-82af4267c3c8",
+   CellTags->"Suggested Guides",
+   CellID->207710212],
+  Cell[35291, 854, 672, 13, 49, "Suggestion",ExpressionUUID->"21e0f2bf-989f-4d37-94c3-c142b90dc3a6",
+   CellTags->"Suggested Guides",
+   CellID->529262011],
+  Cell[39151, 933, 576, 11, 29, "Suggestion",ExpressionUUID->"24cefafb-3285-4496-ab5c-e2b818238a5d",
+   CellTags->"Suggested Guides",
+   CellID->93889417],
+  Cell[39730, 946, 692, 12, 49, "Suggestion",ExpressionUUID->"ab349235-d3c5-463c-8047-53ab28b2565a",
+   CellTags->"Suggested Guides",
+   CellID->1736705465],
+  Cell[40425, 960, 488, 9, 29, "Suggestion",ExpressionUUID->"82244771-d67a-44bd-87c6-5403d8830f16",
+   CellTags->"Suggested Guides",
+   CellID->104680239],
+  Cell[40916, 971, 1739, 35, 129, "Suggestion",ExpressionUUID->"cb7194c6-f5eb-4138-8115-1986d0693035",
+   CellTags->"Suggested Guides",
+   CellID->287995893],
+  Cell[44968, 1060, 499, 10, 29, "Suggestion",ExpressionUUID->"9e5a05c1-0bdc-472e-89e8-7d5326bfd770",
+   CellTags->"Suggested Guides",
+   CellID->112482528],
+  Cell[45470, 1072, 499, 10, 29, "Suggestion",ExpressionUUID->"cea84180-edd8-4fb5-b54c-ea6fcc1def7c",
+   CellTags->"Suggested Guides",
+   CellID->1316931753]},
+ "Hint"->{
+  Cell[43999, 1042, 966, 16, 116, "Hint",ExpressionUUID->"17bf9d91-fc56-4379-8ee6-21c89fa559ff",
+   CellTags->"Hint",
+   CellID->774372273]}
+ }
+*)
+(*CellTagsIndex
+CellTagsIndex->{
+ {"Title", 71900, 1649},
+ {"Module Description", 72042, 1652},
+ {"Section Header", 72207, 1655},
+ {"Item", 72754, 1664},
+ {"Statement", 73253, 1674},
+ {"Suggested Guides", 75401, 1717},
+ {"Hint", 77142, 1751}
+ }
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 323, 4, 119, "Title",ExpressionUUID->"a0dcb453-6446-4ef5-8ad6-b1fb076cac42",
+ CellTags->"Title"],
+Cell[906, 28, 2534, 60, 257, "ModuleDescription",ExpressionUUID->"19c02064-b003-4abe-a471-ee158aad0098",
+ CellTags->"Module Description"],
+Cell[CellGroupData[{
+Cell[3465, 92, 130, 2, 33, "SectionHeader",ExpressionUUID->"3244ddce-1151-4a5d-b297-9028eeea907f",
+ CellTags->"Section Header"],
+Cell[3598, 96, 430, 8, 51, "Item",ExpressionUUID->"0a5d1e4b-fb73-4366-8af8-b7a02187031e",
+ CellTags->"Item"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4065, 109, 159, 2, 33, "SectionHeader",ExpressionUUID->"fa2f0791-79d5-41af-b5bc-f022d41664f4",
+ CellTags->"Section Header"],
+Cell[4227, 113, 258, 5, 29, "Item",ExpressionUUID->"c855dbe1-7b4c-4dba-b8cb-36293e83baed",
+ CellTags->"Item",
+ CellID->1263652807]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4522, 123, 155, 3, 33, "SectionHeader",ExpressionUUID->"48f8d30a-47b5-42ba-8c00-d87038ab5e18",
+ CellTags->"Section Header"],
+Cell[4680, 128, 189, 3, 29, "Item",ExpressionUUID->"02605444-e328-4926-8bd0-0624beb19f8f",
+ CellTags->"Item"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4906, 136, 154, 3, 33, "SectionHeader",ExpressionUUID->"e747df6f-dd27-4133-b607-6495d3f4cf77",
+ CellTags->"Section Header"],
+Cell[5063, 141, 235, 3, 29, "Item",ExpressionUUID->"badd51da-d62b-4793-94a2-70dfc7d22c4c",
+ CellTags->"Item"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5335, 149, 81, 0, 53, "SectionDivider",ExpressionUUID->"a8a95f5b-273a-4098-93df-0ce2d2bc5e10"],
+Cell[CellGroupData[{
+Cell[5441, 153, 140, 3, 75, "Section",ExpressionUUID->"b2caab7d-f38a-4343-af77-45cb1b424fc7",
+ CellGroupingRules->{"SectionGrouping", 32}],
+Cell[5584, 158, 358, 5, 41, "Statement",ExpressionUUID->"54a9778a-f204-4455-907e-4332d29da740",
+ CellTags->"Statement"],
+Cell[5945, 165, 478, 10, 32, "Hint",ExpressionUUID->"d74a9a9a-90a4-4a9e-8cce-edb21bdba025",
+ CellTags->"Statement",
+ CellID->2055985095],
+Cell[6426, 177, 254, 5, 30, "Input",ExpressionUUID->"73b76165-b357-48db-b2d1-9a46fe43dea0"],
+Cell[6683, 184, 355, 6, 41, "Statement",ExpressionUUID->"708a1c39-d62f-48cf-b463-1c3c83500bc6",
+ CellTags->"Statement",
+ CellID->1183425932],
+Cell[7041, 192, 3438, 79, 367, "Input",ExpressionUUID->"9252fba3-0145-49ae-93cf-fabd0b1d609c",
+ CellID->907882076],
+Cell[10482, 273, 699, 13, 69, "Suggestion",ExpressionUUID->"d6abefba-6a3a-4d24-b234-3ce37fbee4bc",
+ CellTags->"Suggested Guides",
+ CellID->62537317],
+Cell[11184, 288, 1191, 24, 69, "Suggestion",ExpressionUUID->"8e1b6afa-eb8a-4017-8772-b0bceb679c28",
+ CellTags->"Suggested Guides",
+ CellID->945183436],
+Cell[12378, 314, 498, 10, 53, "Hint",ExpressionUUID->"20fae844-c751-4480-bde2-fc80905e46c7",
+ CellTags->"Statement",
+ CellID->213552572],
+Cell[12879, 326, 138, 2, 30, "Input",ExpressionUUID->"03feb706-1700-461e-a2f5-1dac5b5b074b",
+ CellID->1288979274],
+Cell[13020, 330, 932, 16, 95, "Hint",ExpressionUUID->"77850367-bd3f-4cbd-814d-0059101dfcf1",
+ CellTags->"Statement",
+ CellID->1944680335],
+Cell[13955, 348, 588, 14, 52, "Input",ExpressionUUID->"20d3d4d2-5b92-48c7-a326-937ec79d9cda",
+ Evaluatable->False,
+ CellID->1498221253],
+Cell[14546, 364, 559, 10, 32, "Hint",ExpressionUUID->"9631fce7-37e3-434a-92f4-fb0bdf895c3a",
+ CellTags->"Statement",
+ CellID->2076188951],
+Cell[15108, 376, 1065, 22, 73, "Input",ExpressionUUID->"045ed847-4ee6-436e-bd0e-d85ba735366c",
+ Evaluatable->False,
+ CellID->1906882992],
+Cell[16176, 400, 855, 16, 53, "Hint",ExpressionUUID->"66e932ce-2e41-48dc-907c-40841a5f85bc",
+ CellTags->"Statement",
+ CellID->794125135],
+Cell[CellGroupData[{
+Cell[17056, 420, 134, 3, 60, "Checkpoint",ExpressionUUID->"2bd81706-f99c-4dec-93f4-11b4751959f7"],
+Cell[17193, 425, 681, 14, 85, "SectionText",ExpressionUUID->"037efc31-fc0e-4816-9fa5-eb3c009e53b0",
+ CellID->1117429604]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17935, 446, 81, 0, 53, "SectionDivider",ExpressionUUID->"6e4a5d20-d83c-4336-984b-635eb3669004"],
+Cell[18019, 448, 488, 10, 41, "Statement",ExpressionUUID->"09957eda-e7be-4393-b4e3-dc131831d20a",
+ CellTags->"Statement"],
+Cell[18510, 460, 575, 9, 74, "Hint",ExpressionUUID->"2f923efb-22f3-4698-8116-d5125ffb9479",
+ CellTags->"Statement"],
+Cell[CellGroupData[{
+Cell[19110, 473, 130, 2, 60, "Checkpoint",ExpressionUUID->"dc138c70-15ab-4738-aeaf-f8088225135c"],
+Cell[19243, 477, 418, 8, 41, "SectionText",ExpressionUUID->"77d32f24-8985-4c9c-9a5e-c266fe851ce6"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[19710, 491, 102, 1, 53, "SectionDivider",ExpressionUUID->"d9afd486-3bfd-4b1a-be77-18af147ff265",
+ CellID->1061869259],
+Cell[19815, 494, 383, 6, 41, "Statement",ExpressionUUID->"180a5b73-731c-461a-a391-74603c192088",
+ CellTags->"Statement",
+ CellID->583969136],
+Cell[20201, 502, 868, 14, 74, "Hint",ExpressionUUID->"703c1379-8139-44f5-82c4-8b90881b694d",
+ CellTags->"Statement",
+ CellID->1741602656],
+Cell[21072, 518, 11918, 287, 1270, "Input",ExpressionUUID->"2696a13f-c455-4db1-bc64-30d337e9e54a",
+ CellID->2112107253],
+Cell[32993, 807, 897, 16, 74, "Hint",ExpressionUUID->"55424433-f8e3-472f-8562-6d0d18faf68f",
+ CellTags->"Statement",
+ CellID->131952837],
+Cell[33893, 825, 824, 14, 69, "Suggestion",ExpressionUUID->"c5c7b64e-dbfc-470e-987f-f0f483b0161f",
+ CellTags->"Suggested Guides",
+ CellID->6649578],
+Cell[34720, 841, 568, 11, 29, "Suggestion",ExpressionUUID->"b2978f89-2a99-4592-aeb1-82af4267c3c8",
+ CellTags->"Suggested Guides",
+ CellID->207710212],
+Cell[35291, 854, 672, 13, 49, "Suggestion",ExpressionUUID->"21e0f2bf-989f-4d37-94c3-c142b90dc3a6",
+ CellTags->"Suggested Guides",
+ CellID->529262011],
+Cell[CellGroupData[{
+Cell[35988, 871, 152, 2, 60, "Checkpoint",ExpressionUUID->"45e95659-0f5b-456d-a68e-417f16860b69",
+ CellID->1631262439],
+Cell[36143, 875, 496, 8, 63, "SectionText",ExpressionUUID->"62bd8fe6-4d86-447e-aff7-b93d104a6f98",
+ CellID->1851574671]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[36688, 889, 101, 1, 53, "SectionDivider",ExpressionUUID->"7ca65a05-e5b3-4f13-8ba1-1d43a7c6e418",
+ CellID->556215197],
+Cell[36792, 892, 451, 7, 41, "Statement",ExpressionUUID->"911fe31d-734f-46c2-aebd-8a392f4afce2",
+ CellTags->"Statement",
+ CellID->92930560],
+Cell[37246, 901, 1902, 30, 221, "Hint",ExpressionUUID->"a05fa821-72c7-4e68-a4ac-a0127be2106f",
+ CellTags->"Statement",
+ CellID->1631879506],
+Cell[39151, 933, 576, 11, 29, "Suggestion",ExpressionUUID->"24cefafb-3285-4496-ab5c-e2b818238a5d",
+ CellTags->"Suggested Guides",
+ CellID->93889417],
+Cell[39730, 946, 692, 12, 49, "Suggestion",ExpressionUUID->"ab349235-d3c5-463c-8047-53ab28b2565a",
+ CellTags->"Suggested Guides",
+ CellID->1736705465],
+Cell[40425, 960, 488, 9, 29, "Suggestion",ExpressionUUID->"82244771-d67a-44bd-87c6-5403d8830f16",
+ CellTags->"Suggested Guides",
+ CellID->104680239],
+Cell[40916, 971, 1739, 35, 129, "Suggestion",ExpressionUUID->"cb7194c6-f5eb-4138-8115-1986d0693035",
+ CellTags->"Suggested Guides",
+ CellID->287995893],
+Cell[CellGroupData[{
+Cell[42680, 1010, 149, 2, 60, "Checkpoint",ExpressionUUID->"22e5fe61-1f75-4488-a65d-b6de23b61515",
+ CellID->518318108],
+Cell[42832, 1014, 452, 7, 63, "SectionText",ExpressionUUID->"5bb7f82c-53a5-41b1-9766-1df9746ba69a",
+ CellID->96868880]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[43333, 1027, 101, 1, 53, "SectionDivider",ExpressionUUID->"bb3a903d-c621-4f8e-beee-d78677a71df4",
+ CellID->553410930],
+Cell[43437, 1030, 559, 10, 41, "Statement",ExpressionUUID->"79af7430-7282-4a7e-8463-577898c0491c",
+ CellTags->"Statement",
+ CellID->425825353],
+Cell[43999, 1042, 966, 16, 116, "Hint",ExpressionUUID->"17bf9d91-fc56-4379-8ee6-21c89fa559ff",
+ CellTags->"Hint",
+ CellID->774372273],
+Cell[44968, 1060, 499, 10, 29, "Suggestion",ExpressionUUID->"9e5a05c1-0bdc-472e-89e8-7d5326bfd770",
+ CellTags->"Suggested Guides",
+ CellID->112482528],
+Cell[45470, 1072, 499, 10, 29, "Suggestion",ExpressionUUID->"cea84180-edd8-4fb5-b54c-ea6fcc1def7c",
+ CellTags->"Suggested Guides",
+ CellID->1316931753],
+Cell[CellGroupData[{
+Cell[45994, 1086, 152, 2, 60, "Checkpoint",ExpressionUUID->"70e046bd-e9ff-4598-b545-c823e4bd3b75",
+ CellID->1741076332],
+Cell[46149, 1090, 797, 12, 107, "SectionText",ExpressionUUID->"e57149ab-0c4a-441d-8f4a-b25f58dfd53d",
+ CellID->657737902]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[46995, 1108, 81, 0, 53, "SectionDivider",ExpressionUUID->"8e2d93c3-26cd-4b2e-b91d-960f373032ae"],
+Cell[CellGroupData[{
+Cell[47101, 1112, 125, 2, 63, "Section",ExpressionUUID->"ca23ef5a-6dc8-41a1-9069-a769ac4129d7"],
+Cell[47229, 1116, 197, 3, 41, "SectionText",ExpressionUUID->"6a7f1639-e30c-4c6b-b535-31f93b691077"],
+Cell[CellGroupData[{
+Cell[47451, 1123, 86, 0, 39, "Subsection",ExpressionUUID->"5b5c11d9-a318-41cd-9fc7-53478f937b2c"],
+Cell[47540, 1125, 212, 5, 35, "Text",ExpressionUUID->"5dfb3f9e-851a-4a9a-9412-ef02f1264f86"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[47789, 1135, 82, 0, 39, "Subsection",ExpressionUUID->"94a186a4-010e-4551-9686-c1601ae3cae6"],
+Cell[47874, 1137, 227, 5, 35, "Text",ExpressionUUID->"20e05fc7-bde2-46b7-803c-390b9de5c493"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48138, 1147, 83, 0, 39, "Subsection",ExpressionUUID->"819855f7-1744-490e-9241-ad6ec72178ba"],
+Cell[48224, 1149, 478, 10, 58, "Text",ExpressionUUID->"817a34ea-34ba-4a33-9dc6-f3830b74ad52"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48763, 1166, 81, 0, 53, "SectionDivider",ExpressionUUID->"e95d5290-1694-4109-bb29-a5d31b8298e9"],
+Cell[CellGroupData[{
+Cell[48869, 1170, 115, 0, 39, "Subsection",ExpressionUUID->"2db44676-76ff-47c7-ae27-a4bb07ebb10d"],
+Cell[48987, 1172, 407, 8, 45, "SeeAlso",ExpressionUUID->"7ac585f0-2984-4d4a-bb2c-c72c599fa6d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[49431, 1185, 94, 0, 39, "Subsection",ExpressionUUID->"342522d5-ff29-49c7-bf04-7a9961d17b55"],
+Cell[49528, 1187, 264, 6, 29, "PitfallItem",ExpressionUUID->"71b519f4-ef21-4ccd-9c22-c2c82103d723"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
